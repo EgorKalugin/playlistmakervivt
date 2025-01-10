@@ -1,6 +1,8 @@
 package com.example.playlistmaker_vivt
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +17,18 @@ class SearchActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val mediaButton = findViewById<Button>(R.id.media_btn)
+        mediaButton.setOnClickListener{
+            val mediaIntent = Intent(this, MediaActivity::class.java)
+            startActivity(mediaIntent)
+        }
+
+        val settingsButton = findViewById<Button>(R.id.settings_btn)
+        settingsButton.setOnClickListener{
+            val settingsIntent = Intent(this, SettingsActivity::class.java)
+            startActivity(settingsIntent)
         }
     }
 }
